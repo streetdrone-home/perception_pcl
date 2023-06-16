@@ -51,5 +51,7 @@ endif()
 # Export old-style CMake variables
 ament_export_include_directories("include/${PROJECT_NAME}")
 
-ament_export_dependencies(${dependencies} PCL)
+# This should also export PCL as dependency,
+# but doing so breaks the build of other packages that depend on jsoncpp
+ament_export_dependencies(${dependencies})
 ament_package()
